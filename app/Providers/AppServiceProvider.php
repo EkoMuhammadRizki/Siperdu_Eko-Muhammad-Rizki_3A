@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if (class_exists(\Illuminate\Foundation\Console\ServeCommand::class)) {
+        \Illuminate\Foundation\Console\ServeCommand::$passthroughVariables[] = 'SystemRoot';
+        }
+
     }
 
     /**
